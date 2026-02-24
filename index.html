@@ -19,6 +19,7 @@
 <section class="title w-[80%] mx-auto">
     <div>
         <h1 class="text-black font-bold text-4xl">Job Application Tracker</h1>
+        <br>
 
         <div class="dashboard-card grid grid-cols-3 gap-10 ">
             <div class= " bg-white p-5 rounded-xl">
@@ -51,9 +52,12 @@
 
 <hr class="my-5 ">
 
-<main class="w-[80%] mx-auto">
+<!-- button toggle style -->
 
-<div>
+<main class="w-[80%] mx-auto">
+<h1 class="text-[20px] font-bold">Availble Jobs</h1>
+<br>
+<div class="flex gap-5">
      <button onclick="toggleStyle('all-filter-btn')" class="bg-blue-400  rounded-lg px-5 py-2" id="all-filter-btn" >All</button>
       <button onclick="toggleStyle('interview-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="interview-filter-btn" >Interview</button>
     <button onclick="toggleStyle('rejected-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="rejected-filter-btn" >Rejected</button>
@@ -66,81 +70,138 @@
     
     
     
-    
-    <!-- All Cards -->
+  <!-- ALL CARDS -->
+<section id="allCards" class="space-y-5">
 
-    <section id="allCards" class="mt-2 space-y-5 ">
-        <div class="px-6 flex justify-between  w-[80%] bg-white rounded-xl">
-            <!-- Main Part -->
-            <div>
-                <h2>Mobile First Crop</h2>
-                <p>React Native Developer</p>
-                <br>
-                <p>Remote • Full time • $130,000 - $175,000</p>
-                <br>
-                <p class="Status bg-gray-300 inline-block rounded-[5px] p-2"> Not Applied</p>
-                <p>Build Cross-platform</p>
-                <div>
-                    <button class="font-medium p-1 border-1 border-green-500  text-green-500">INTERVIEW</button>
-                    <button class="font-medium p-1 border-1 border-red-500  text-red-500">REJECTED</button>
-                </div>
-            </div>
+<!-- 1 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">TechNova Ltd</h2>
+<p class="positionName">Frontend Developer</p>
+<p class="location">Remote • <span class="type">Full time</span> <span class="salary">• $90,000 - $110,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Build responsive websites using modern JavaScript.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-            <!-- Delete box -->
-            <div class=" mt-5 mb-45 border-1">
-                <button><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-        </div>
+<!-- 2 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">Skyline Solutions</h2>
+<p class="positionName">Backend Engineer</p>
+<p class="location">New York • <span class="type">Full time</span> <span class="salary">• $100,000 - $130,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Develop scalable server-side applications.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-                                    <!-- carD 2 -->
+<!-- 3 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">Bright Analytics</h2>
+<p class="positionName">Data Analyst</p>
+<p class="location">Chicago • <span class="type">Part time</span> <span class="salary">• $70,000 - $90,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Analyze business data and create reports.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
+<!-- 4 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">Creative Minds</h2>
+<p class="positionName">UI/UX Designer</p>
+<p class="location">Remote • <span class="type">Contract</span> <span class="salary">• $60,000 - $80,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Design user friendly SaaS interfaces.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-        <div class="px-6 flex justify-between  w-[80%] bg-white rounded-xl">
-            <!-- Main Part -->
-            <div>
-                <h2>Mobile First Crop</h2>
-                <p>React Native Developer</p>
-                <br>
-                <p>Remote • Full time • $130,000 - $175,000</p>
-                <br>
-                <p class="Status bg-gray-300 inline-block rounded-[5px] p-2"> Not Applied</p>
-                <p>Build Cross-platform</p>
-                <div>
-                    <button class="font-medium p-1 border-1 border-green-500  text-green-500">INTERVIEW</button>
-                    <button class="font-medium p-1 border-1 border-red-500  text-red-500">REJECTED</button>
-                </div>
-            </div>
+<!-- 5 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">CloudCore</h2>
+<p class="positionName">DevOps Engineer</p>
+<p class="location">Austin • <span class="type">Full time</span> <span class="salary">• $110,000 - $140,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Manage CI/CD and cloud deployment.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-            <!-- Delete box -->
-            <div class=" mt-5 mb-45  border-1">
-                <button><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-        </div>
+<!-- 6 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">FinEdge</h2>
+<p class="positionName">Software Engineer</p>
+<p class="location">San Francisco • <span class="type">Full time</span> <span class="salary">• $120,000 - $150,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Build secure fintech applications.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-                                <!-- carD-3 -->
+<!-- 7 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">HealthBridge</h2>
+<p class="positionName">Mobile Developer</p>
+<p class="location">Remote • <span class="type">Full time</span> <span class="salary">• $95,000 - $115,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Develop healthcare mobile apps.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-        <div class="px-6 flex justify-between  w-[80%] bg-white rounded-xl">
-            <!-- Main Part -->
-            <div>
-                <h2>Mobile First Crop</h2>
-                <p>React Native Developer</p>
-                <br>
-                <p>Remote • Full time • $130,000 - $175,000</p>
-                <br>
-                <p class="Status bg-gray-300 inline-block rounded-[5px] p-2"> Not Applied</p>
-                <p>Build Cross-platform</p>
-                <div>
-                    <button class="font-medium p-1 border-1 border-green-500  text-green-500">INTERVIEW</button>
-                    <button class="font-medium p-1 border-1 border-red-500  text-red-500">REJECTED</button>
-                </div>
-            </div>
+<!-- 8 -->
+<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-4">
+<h2 class="companyName font-bold">EduSmart</h2>
+<p class="positionName">Full Stack Developer</p>
+<p class="location">Boston • <span class="type">Full time</span> <span class="salary">• $105,000 - $125,000</span></p>
+<p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
+<p class="statusNow">Build modern educational platforms.</p>
+<div>
+<button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
+<button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
+</div>
+</div>
+<button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+</div>
 
-            <!-- Delete box -->
-            <div class="  mt-5 mb-45 border-1">
-                <button><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-        </div>
-    </section>
+</section>
 
 
 

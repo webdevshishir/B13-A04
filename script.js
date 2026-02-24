@@ -48,3 +48,30 @@ function toggleStyle(id){
     selected.classList.add('bg-blue-400', 'text-black')
 
 }
+
+mainContainer.addEventListener('click', function(event) {
+    // console.log(event.target.parentNode.parentNode);
+    const parentNode = event.target.parentNode.parentNode;
+    const companyName = parentNode.querySelector('.companyName').innerText
+    const positionName = parentNode.querySelector('.positionName').innerText
+    const location = parentNode.querySelector('.location').innerText
+    const type = parentNode.querySelector('.type').innerText
+    const salary = parentNode.querySelector('.salary').innerText
+    const description = parentNode.querySelector('.description').innerText
+    const statusNow = parentNode.querySelector('.statusNow').innerText
+    // console.log(companyName,positionName,location,type,salary,description,statusNow);
+
+    const cardInfo = {
+        companyName,
+        positionName,
+        location,
+        type,
+        salary,
+        description,
+        statusNow,
+    
+        
+        
+    }
+console.log(cardInfo);
+})
