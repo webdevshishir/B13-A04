@@ -1,10 +1,9 @@
 let interviewList = [];
 let rejectedList = [];
 
-
+let currentFilter = "all";
 
 // COunt
-
 
 let totalCount = document.getElementById('totalCount');
 let interviewCount = document.getElementById('interviewCount');
@@ -14,69 +13,55 @@ const allFilterBtn = document.getElementById('all-filter-btn');
 const interviewFilterBtn = document.getElementById('interview-filter-btn');
 const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
 
-
 const allCardSection = document.getElementById('allCards');
 
 const mainContainer = document.querySelector('main')
-
-// console.log(mainContainer);
-// console.log(allCardSection.children.length);
 
 function calculateCount(){
     totalCount.innerText = allCardSection.children.length
     interviewCount.innerText = interviewList.length
     rejectedCount.innerText = rejectedList.length
-
 }
 calculateCount()
+updateAvailableCount();
+
+// update jobs
+
+function updateAvailableCount(){
+
+    const cards = allCardSection.children;
+    let visibleCount = 0;
+
+    for(let card of cards){
+        if(card.style.display !== "none"){
+            visibleCount++;
+        }
+    }
+
+    const availableCount = document.getElementById('availableCount');
+    if(availableCount){
+        availableCount.innerText = visibleCount + " jobs";
+    }
+}
+calculateCount();
+updateAvailableCount();
   
 // Toggle Style
 
 function toggleStyle(id){
     allFilterBtn.classList.remove('bg-blue-400','text-black')
-   interviewFilterBtn.classList.remove('bg-blue-400','text-black')
+    interviewFilterBtn.classList.remove('bg-blue-400','text-black')
     rejectedFilterBtn.classList.remove('bg-blue-400','text-black')
 
-     allFilterBtn.classList.add('bg-white','text-black')
-   interviewFilterBtn.classList.add('bg-white','text-black')
+    allFilterBtn.classList.add('bg-white','text-black')
+    interviewFilterBtn.classList.add('bg-white','text-black')
     rejectedFilterBtn.classList.add('bg-white','text-black')
 
     const selected = document.getElementById(id)
-    // console.log(selected);
 
     selected.classList.remove('bg-white', 'text-black')
     selected.classList.add('bg-blue-400', 'text-black')
-
 }
-
-// CHecking part 
-
-// mainContainer.addEventListener('click', function(event) {
-//     // console.log(event.target.parentNode.parentNode);
-//     const parentNode = event.target.parentNode.parentNode;
-//     const companyName = parentNode.querySelector('.companyName').innerText
-//     const positionName = parentNode.querySelector('.positionName').innerText
-//     const location = parentNode.querySelector('.location').innerText
-//     const type = parentNode.querySelector('.type').innerText
-//     const salary = parentNode.querySelector('.salary').innerText
-//     const description = parentNode.querySelector('.description').innerText
-//     const statusNow = parentNode.querySelector('.statusNow').innerText
-//     // console.log(companyName,positionName,location,type,salary,description,statusNow);
-
-//     const cardInfo = {
-//         companyName,
-//         positionName,
-//         location,
-//         type,
-//         salary,
-//         description,
-//         statusNow,
-    
-        
-        
-//     }
-// console.log(cardInfo);
-// })
 
 
 // My New Event deligation system  ---------------
@@ -99,8 +84,6 @@ mainContainer.addEventListener('click', function(event){
         }else{
 
             interviewList.push(companyName);
-
-           
             rejectedList = rejectedList.filter(name => name !== companyName);
 
             statusTag.innerText = "Interview";
@@ -108,12 +91,20 @@ mainContainer.addEventListener('click', function(event){
         }
 
         calculateCount();
+
+        if(currentFilter === "all"){
+            card.style.display = "none";
+        }
+
+        if(currentFilter === "rejected"){
+            card.style.display = "none";
+        }
+
+        updateAvailableCount(); 
     }
 
 
-
-//    rejected buttonb
-
+    // rejected button
     if(event.target.classList.contains('rejected-btn')){
 
         if(rejectedList.includes(companyName)){
@@ -123,7 +114,6 @@ mainContainer.addEventListener('click', function(event){
         }else{
 
             rejectedList.push(companyName);
-
             interviewList = interviewList.filter(name => name !== companyName);
 
             statusTag.innerText = "Rejected";
@@ -131,10 +121,19 @@ mainContainer.addEventListener('click', function(event){
         }
 
         calculateCount();
+
+        if(currentFilter === "all"){
+            card.style.display = "none";
+        }
+
+        if(currentFilter === "interview"){
+            card.style.display = "none";
+        }
+
+        updateAvailableCount(); 
     }
 
     // delete button
-
     if(event.target.closest('.delete-btn')){
 
         interviewList = interviewList.filter(name => name !== companyName);
@@ -142,17 +141,18 @@ mainContainer.addEventListener('click', function(event){
 
         card.remove();
         calculateCount();
+        updateAvailableCount(); 
     }
 
 });
+updateAvailableCount();
 
 
-
-// Button  Section done
-
-// filter sytem ongoing
+// filter system ongoing
 
 allFilterBtn.addEventListener('click', function(){
+
+    currentFilter = "all";
 
     const cards = allCardSection.children;
 
@@ -160,10 +160,13 @@ allFilterBtn.addEventListener('click', function(){
         card.style.display = "flex";
     }
 
+    updateAvailableCount(); 
 });
 
 
 interviewFilterBtn.addEventListener('click', function(){
+
+    currentFilter = "interview";
 
     const cards = allCardSection.children;
 
@@ -178,13 +181,15 @@ interviewFilterBtn.addEventListener('click', function(){
         }
     }
 
+    updateAvailableCount(); 
 });
 
 
 // rejected btn
 
-
 rejectedFilterBtn.addEventListener('click', function(){
+
+    currentFilter = "rejected";
 
     const cards = allCardSection.children;
 
@@ -199,5 +204,29 @@ rejectedFilterBtn.addEventListener('click', function(){
         }
     }
 
+    updateAvailableCount(); 
 });
 
+// EMPTY STATE FUNCTION (ADDED)
+function toggleEmptyState(){
+
+    const cards = allCardSection.children;
+    let visibleCount = 0;
+
+    for(let card of cards){
+        if(card.style.display !== "none"){
+            // emptyState div কে count করবো না
+            if(card.id !== "emptyState"){
+                visibleCount++;
+            }
+        }
+    }
+
+    const emptyState = document.getElementById('emptyState');
+
+    if(visibleCount === 0){
+        emptyState.classList.remove("hidden");
+    }else{
+        emptyState.classList.add("hidden");
+    }
+}
