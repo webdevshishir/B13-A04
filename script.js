@@ -206,27 +206,3 @@ rejectedFilterBtn.addEventListener('click', function(){
 
     updateAvailableCount(); 
 });
-
-// EMPTY STATE FUNCTION (ADDED)
-function toggleEmptyState(){
-
-    const cards = allCardSection.children;
-    let visibleCount = 0;
-
-    for(let card of cards){
-        if(card.style.display !== "none"){
-            // emptyState div কে count করবো না
-            if(card.id !== "emptyState"){
-                visibleCount++;
-            }
-        }
-    }
-
-    const emptyState = document.getElementById('emptyState');
-
-    if(visibleCount === 0){
-        emptyState.classList.remove("hidden");
-    }else{
-        emptyState.classList.add("hidden");
-    }
-}
