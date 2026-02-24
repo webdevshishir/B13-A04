@@ -180,3 +180,24 @@ interviewFilterBtn.addEventListener('click', function(){
 
 });
 
+
+// rejected btn
+
+
+rejectedFilterBtn.addEventListener('click', function(){
+
+    const cards = allCardSection.children;
+
+    for(let card of cards){
+
+        const companyName = card.querySelector('.companyName').innerText;
+
+        if(rejectedList.includes(companyName)){
+            card.style.display = "flex";
+        }else{
+            card.style.display = "none";
+        }
+    }
+
+});
+
