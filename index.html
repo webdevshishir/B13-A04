@@ -5,213 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
 
-<!-- Tailwind+CDN -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<!-- font awesome -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
 </head>
+
 <body class="bg-[#F8FAFC]">
 
+<!-- title section -->
+<section class="title w-[95%] md:w-[80%] mx-auto">
+<div>
+<h1 class="text-black font-bold text-2xl md:text-4xl">Job Application Tracker</h1>
+<br>
 
-<!-- TITLE SECTION -->
-<section class="title w-[80%] mx-auto">
-    <div>
-        <h1 class="text-black font-bold text-4xl">Job Application Tracker</h1>
-        <br>
+<div class="dashboard-card grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-10">
 
-        <div class="dashboard-card grid grid-cols-3 gap-10 ">
-            <div class= " bg-white p-5 rounded-xl">
+<div class="bg-white p-5 rounded-xl">
+<p class="text-black font-bold">Total</p>
+<h2 id="totalCount" class="text-[25px]">8</h2>
+</div>
 
-                <!-- Total -->
+<div class="bg-white p-5 rounded-xl">
+<p>Interview</p>
+<p id="interviewCount" class="text-green-600 text-[25px]">0</p>
+</div>
 
-                <p class="text-black font-bold">Total</p>
-                <h2 id="totalCount" class="text-[25px]">8</h2>
+<div class="bg-white p-5 rounded-xl">
+<p>Rejected</p>
+<p id="rejectedCount" class="text-red-600 text-[25px]">0</p>
+</div>
 
-            </div>
-
-            <!-- Interview -->
-
-            <div class="bg-white p-5 rounded-xl">
-                <p>Interview</p>
-                <p id="interviewCount" class="text-green-600 text-[25px]" >0</p>
-            </div>
-            <!-- rjected -->
-
-            <div class="bg-white p-5 rounded-xl">
-                <p>Rejected</p>
-                <p id="rejectedCount" class="text-red-600 text-[25px]">0</p>
-            </div>
-
-
-        </div>
-
-    </div>
+</div>
+</div>
 </section>
 
-<hr class="my-5 ">
+<hr class="my-5">
 
-<!-- button toggle style -->
+<main class="w-[95%] md:w-[80%] mx-auto mb-10">
 
-<main class="w-[80%] mx-auto mb-10">
-<div class="flex justify-between items-center  pb-2">
-    <h2 class="text-xl font-semibold">Available Jobs</h2>
-    <span id="availableCount" class="text-sm text-gray-500">0 jobs</span>
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 pb-2">
+<h2 class="text-xl font-semibold">Available Jobs</h2>
+<span id="availableCount" class="text-sm text-gray-500">0 jobs</span>
 </div>
+
 <br>
-<div class="flex gap-5">
-     <button onclick="toggleStyle('all-filter-btn')" class="bg-blue-400  rounded-lg px-5 py-2" id="all-filter-btn" >All</button>
-      <button onclick="toggleStyle('interview-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="interview-filter-btn" >Interview</button>
-    <button onclick="toggleStyle('rejected-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="rejected-filter-btn" >Rejected</button>
-  
-              
-    
-    </div>
-    
-    
-    
-    
-    
-  <!-- ALL CARDS -->
+
+<div class="flex flex-wrap gap-3 sm:gap-5">
+<button onclick="toggleStyle('all-filter-btn')" class="bg-blue-400 rounded-lg px-5 py-2" id="all-filter-btn">All</button>
+<button onclick="toggleStyle('interview-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="interview-filter-btn">Interview</button>
+<button onclick="toggleStyle('rejected-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="rejected-filter-btn">Rejected</button>
+</div>
+
 <section id="allCards" class="space-y-5 mt-10">
 
-    
+<!-- CArd section -->
+
+
 
 <!-- 1 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">TechNova Ltd</h2>
 <p class="positionName">Frontend Developer</p>
-<p class="location">Remote • <span class="type">Full time</span> <span class="salary">• $90,000 - $110,000</span></p>
+<p class="location text-sm">Remote • <span class="type">Full time</span> <span class="salary">• $90,000 - $110,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Build responsive websites using modern JavaScript.</p>
-<div>
+<p class="statusNow text-sm">Build responsive websites using modern JavaScript.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 2 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">Skyline Solutions</h2>
 <p class="positionName">Backend Engineer</p>
-<p class="location">New York • <span class="type">Full time</span> <span class="salary">• $100,000 - $130,000</span></p>
+<p class="location text-sm">New York • <span class="type">Full time</span> <span class="salary">• $100,000 - $130,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Develop scalable server-side applications.</p>
-<div>
+<p class="statusNow text-sm">Develop scalable server-side applications.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 3 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">Bright Analytics</h2>
 <p class="positionName">Data Analyst</p>
-<p class="location">Chicago • <span class="type">Part time</span> <span class="salary">• $70,000 - $90,000</span></p>
+<p class="location text-sm">Chicago • <span class="type">Part time</span> <span class="salary">• $70,000 - $90,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Analyze business data and create reports.</p>
-<div>
+<p class="statusNow text-sm">Analyze business data and create reports.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 4 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">Creative Minds</h2>
 <p class="positionName">UI/UX Designer</p>
-<p class="location">Remote • <span class="type">Contract</span> <span class="salary">• $60,000 - $80,000</span></p>
+<p class="location text-sm">Remote • <span class="type">Contract</span> <span class="salary">• $60,000 - $80,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Design user friendly SaaS interfaces.</p>
-<div>
+<p class="statusNow text-sm">Design user friendly SaaS interfaces.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 5 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">CloudCore</h2>
 <p class="positionName">DevOps Engineer</p>
-<p class="location">Austin • <span class="type">Full time</span> <span class="salary">• $110,000 - $140,000</span></p>
+<p class="location text-sm">Austin • <span class="type">Full time</span> <span class="salary">• $110,000 - $140,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Manage CI/CD and cloud deployment.</p>
-<div>
+<p class="statusNow text-sm">Manage CI/CD and cloud deployment.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 6 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">FinEdge</h2>
 <p class="positionName">Software Engineer</p>
-<p class="location">San Francisco • <span class="type">Full time</span> <span class="salary">• $120,000 - $150,000</span></p>
+<p class="location text-sm">San Francisco • <span class="type">Full time</span> <span class="salary">• $120,000 - $150,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Build secure fintech applications.</p>
-<div>
+<p class="statusNow text-sm">Build secure fintech applications.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 7 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">HealthBridge</h2>
 <p class="positionName">Mobile Developer</p>
-<p class="location">Remote • <span class="type">Full time</span> <span class="salary">• $95,000 - $115,000</span></p>
+<p class="location text-sm">Remote • <span class="type">Full time</span> <span class="salary">• $95,000 - $115,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Develop healthcare mobile apps.</p>
-<div>
+<p class="statusNow text-sm">Develop healthcare mobile apps.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 <!-- 8 -->
-<div class="space-y-9 p-6 flex justify-between bg-white rounded-xl">
+<div class="space-y-9 p-6 flex flex-col md:flex-row md:justify-between gap-5 bg-white rounded-xl">
 <div class="space-y-4">
 <h2 class="companyName font-bold">EduSmart</h2>
 <p class="positionName">Full Stack Developer</p>
-<p class="location">Boston • <span class="type">Full time</span> <span class="salary">• $105,000 - $125,000</span></p>
+<p class="location text-sm">Boston • <span class="type">Full time</span> <span class="salary">• $105,000 - $125,000</span></p>
 <p class="description Status bg-gray-300 inline-block rounded p-2">Not Applied</p>
-<p class="statusNow">Build modern educational platforms.</p>
-<div>
+<p class="statusNow text-sm">Build modern educational platforms.</p>
+<div class="flex flex-wrap gap-2">
 <button class="interview-btn border border-green-500 text-green-500 px-2 py-1">INTERVIEW</button>
 <button class="rejected-btn border border-red-500 text-red-500 px-2 py-1">REJECTED</button>
 </div>
 </div>
-<button class="delete-btn mb-70"><i class="fa-solid fa-trash-can"></i></button>
+<button class="delete-btn self-start md:self-auto"><i class="fa-solid fa-trash-can"></i></button>
 </div>
 
 </section>
-
-
-
 </main>
 
-   <script src="./script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
