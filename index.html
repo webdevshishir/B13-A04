@@ -8,21 +8,39 @@
 <!-- Tailwind+CDN -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+<!-- font awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body class="bg-[#F8FAFC]">
 
 
 <!-- TITLE SECTION -->
-<section class="title">
+<section class="title w-[80%] mx-auto">
     <div>
-        <h1>Job Application Tracker</h1>
+        <h1 class="text-black font-bold text-4xl">Job Application Tracker</h1>
 
-        <div class="dashboard-card">
-            <div>
+        <div class="dashboard-card grid grid-cols-3 gap-10 ">
+            <div class= " bg-white p-5 rounded-xl">
+
+                <!-- Total -->
+
                 <p class="text-black font-bold">Total</p>
-                <h2>8</h2>
+                <h2 id="totalCount" class="text-[25px]">8</h2>
+
+            </div>
+
+            <!-- Interview -->
+
+            <div class="bg-white p-5 rounded-xl">
+                <p>Interview</p>
+                <p id="interviewCount" class="text-green-600 text-[25px]" >0</p>
+            </div>
+            <!-- rjected -->
+
+            <div class="bg-white p-5 rounded-xl">
+                <p>Rejected</p>
+                <p id="rejectedCount" class="text-red-600 text-[25px]">0</p>
             </div>
 
 
@@ -31,6 +49,103 @@
     </div>
 </section>
 
+<hr class="my-5 ">
+
+<main class="w-[80%] mx-auto">
+
+<div>
+     <button onclick="toggleStyle('all-filter-btn')" class="bg-blue-400  rounded-lg px-5 py-2" id="all-filter-btn" >All</button>
+      <button onclick="toggleStyle('interview-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="interview-filter-btn" >Interview</button>
+    <button onclick="toggleStyle('rejected-filter-btn')" class="bg-white rounded-lg px-5 py-2" id="rejected-filter-btn" >Rejected</button>
+  
+              
     
+    </div>
+    
+    
+    
+    
+    
+    
+    <!-- All Cards -->
+
+    <section id="allCards" class="mt-2 space-y-5 ">
+        <div class="px-6 flex justify-between  w-[80%] bg-white rounded-xl">
+            <!-- Main Part -->
+            <div>
+                <h2>Mobile First Crop</h2>
+                <p>React Native Developer</p>
+                <br>
+                <p>Remote • Full time • $130,000 - $175,000</p>
+                <br>
+                <p class="Status bg-gray-300 inline-block rounded-[5px] p-2"> Not Applied</p>
+                <p>Build Cross-platform</p>
+                <div>
+                    <button class="font-medium p-1 border-1 border-green-500  text-green-500">INTERVIEW</button>
+                    <button class="font-medium p-1 border-1 border-red-500  text-red-500">REJECTED</button>
+                </div>
+            </div>
+
+            <!-- Delete box -->
+            <div class=" mt-5 mb-45 border-1">
+                <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>
+
+                                    <!-- carD 2 -->
+
+
+        <div class="px-6 flex justify-between  w-[80%] bg-white rounded-xl">
+            <!-- Main Part -->
+            <div>
+                <h2>Mobile First Crop</h2>
+                <p>React Native Developer</p>
+                <br>
+                <p>Remote • Full time • $130,000 - $175,000</p>
+                <br>
+                <p class="Status bg-gray-300 inline-block rounded-[5px] p-2"> Not Applied</p>
+                <p>Build Cross-platform</p>
+                <div>
+                    <button class="font-medium p-1 border-1 border-green-500  text-green-500">INTERVIEW</button>
+                    <button class="font-medium p-1 border-1 border-red-500  text-red-500">REJECTED</button>
+                </div>
+            </div>
+
+            <!-- Delete box -->
+            <div class=" mt-5 mb-45  border-1">
+                <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>
+
+                                <!-- carD-3 -->
+
+        <div class="px-6 flex justify-between  w-[80%] bg-white rounded-xl">
+            <!-- Main Part -->
+            <div>
+                <h2>Mobile First Crop</h2>
+                <p>React Native Developer</p>
+                <br>
+                <p>Remote • Full time • $130,000 - $175,000</p>
+                <br>
+                <p class="Status bg-gray-300 inline-block rounded-[5px] p-2"> Not Applied</p>
+                <p>Build Cross-platform</p>
+                <div>
+                    <button class="font-medium p-1 border-1 border-green-500  text-green-500">INTERVIEW</button>
+                    <button class="font-medium p-1 border-1 border-red-500  text-red-500">REJECTED</button>
+                </div>
+            </div>
+
+            <!-- Delete box -->
+            <div class="  mt-5 mb-45 border-1">
+                <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>
+    </section>
+
+
+
+</main>
+
+   <script src="./script.js"></script>
 </body>
 </html>
